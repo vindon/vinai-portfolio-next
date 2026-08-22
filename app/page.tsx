@@ -2,6 +2,7 @@ import ScrollReveal from '@/components/ScrollReveal';
 import Nav from '@/components/Nav';
 import Hero from '@/components/Hero';
 import ProductsCarousel from '@/components/ProductsCarousel';
+import Solutions from '@/components/Solutions';
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
         <ScrollReveal />
         <Hero />
         <ProductsCarousel />
+        <Solutions />
       </main>
     </>
   );
