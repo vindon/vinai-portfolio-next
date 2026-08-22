@@ -81,3 +81,48 @@ section{padding:88px 0;}
 .section-head{max-width:640px; margin:0 auto 44px; text-align:center;}
 .section-head h2{font-size:clamp(26px,3.2vw,34px); margin-top:12px;}
 .section-head p{color:var(--grey); margin:14px auto 0; font-size:17px;}
+
+/* ===== NAV ===== */
+header.nav{
+  position:sticky; top:0; z-index:100;
+  background:var(--bg);
+  border-bottom:1px solid var(--line-soft);
+}
+.nav-inner{
+  max-width:var(--max); margin:0 auto; padding:22px 32px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+@media(max-width:640px){ .nav-inner{padding:18px 20px;} }
+
+.brand-name{font-family:'Inter',sans-serif; font-weight:800; font-size:21px; color:var(--ink);}
+.brand-tag{font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; color:var(--grey-light); text-transform:uppercase; display:block; margin-top:2px;}
+
+nav.links{display:flex; align-items:center; gap:36px;}
+nav.links a{
+  font-size:16px; font-weight:700; color:var(--ink);
+  transition:color .15s; white-space:nowrap;
+}
+nav.links a:hover{color:var(--accent-deep);}
+.nav-cta{
+  color:#fff !important; background:var(--ink);
+  padding:11px 22px; border-radius:var(--radius-pill);
+  box-shadow:var(--shadow-sm);
+  transition:background .15s, box-shadow .15s, transform .15s;
+}
+.nav-cta:hover{background:var(--accent-deep) !important; color:#fff !important; box-shadow:var(--shadow-md); transform:translateY(-1px);}
+
+.nav-toggle{display:none; background:none; border:none; cursor:pointer; padding:6px;}
+.nav-toggle span{display:block; width:22px; height:1.5px; background:var(--ink); margin:5px 0;}
+
+@media(max-width:760px){
+  nav.links{
+    position:fixed; inset:60px 0 0 0; background:var(--bg);
+    flex-direction:column; align-items:flex-start; gap:0;
+    padding:8px 24px 24px; border-top:1px solid var(--line-soft);
+    transform:translateY(-110%); transition:transform .2s ease;
+    pointer-events:none;
+  }
+  nav.links.open{transform:translateY(0); pointer-events:auto;}
+  nav.links a{width:100%; padding:15px 0; border-bottom:1px solid var(--line-soft);}
+  .nav-toggle{display:block;}
+}
