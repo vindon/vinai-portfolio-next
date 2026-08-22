@@ -1,5 +1,6 @@
 import ScrollReveal from '@/components/ScrollReveal';
 import Nav from '@/components/Nav';
+import Hero from '@/components/Hero';
 
 export default function Home() {
   return (
@@ -7,7 +8,7 @@ export default function Home() {
       <Nav />
       <main id="top">
         <ScrollReveal />
-        <h1 style={{ padding: '40px' }}>vinai</h1>
+        <Hero />
       </main>
     </>
   );
