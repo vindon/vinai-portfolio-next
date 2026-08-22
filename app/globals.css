@@ -157,3 +157,78 @@ nav.links a:hover{color:var(--accent-deep);}
   box-shadow:var(--shadow-sm);
 }
 .hero-proof svg{width:16px; height:16px; color:var(--accent-deep); flex-shrink:0;}
+
+/* ===== PRODUCT CARD ===== */
+.product-card{
+  position:relative; overflow:hidden;
+  background:var(--card);
+  border:none; border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-card);
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.product-card::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:6px;
+  background:var(--tcolor, var(--accent));
+  border-radius:var(--radius-lg) var(--radius-lg) 0 0;
+  z-index:2;
+}
+.product-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 40px -14px var(--tcolor, var(--accent)), var(--shadow-card);
+}
+.product-card-content{
+  position:relative; z-index:1;
+  display:flex; flex-direction:column; align-items:center; text-align:center; gap:14px;
+  padding:38px 30px 30px;
+}
+.stage-tag{
+  font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.06em; text-transform:uppercase;
+  color:var(--tcolor, var(--accent-deep)); background:var(--ttint, rgba(31,31,31,0.07));
+  padding:5px 12px; border-radius:var(--radius-pill); font-weight:600;
+}
+.stage-tag.explore{color:var(--grey); background:rgba(31,31,31,0.06);}
+.product-card h3{font-size:23px; line-height:1.2; font-weight:800; letter-spacing:-0.015em;}
+.problem-box{
+  align-self:stretch; text-align:left;
+  background:var(--ttint, rgba(31,31,31,0.06)); border-radius:14px;
+  padding:14px 16px; display:flex; flex-direction:column; gap:4px;
+}
+.problem-label{
+  font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.06em; text-transform:uppercase;
+  color:var(--tcolor, var(--accent-deep)); font-weight:700;
+}
+.problem-box p{font-size:13.5px; color:var(--ink); line-height:1.5; margin:0; font-weight:500;}
+.product-desc{align-self:stretch; text-align:left; font-size:14.5px; color:var(--grey); line-height:1.6;}
+.tech-tags{
+  align-self:stretch; text-align:left;
+  margin-top:auto; padding-top:14px; border-top:1px solid rgba(31,31,31,0.1);
+  display:flex; flex-wrap:wrap; gap:6px;
+}
+.tech-chip{
+  font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--grey);
+  background:rgba(31,31,31,0.05); border-radius:var(--radius-pill); padding:4px 10px;
+}
+
+/* ===== ICON CHIPS ===== */
+.icon-chip{
+  width:52px; height:52px; border-radius:16px;
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:2px;
+}
+.icon-chip svg{width:26px; height:26px;}
+.product-card .icon-chip{background:var(--ttint, rgba(31,31,31,0.07)); color:var(--tcolor, var(--ink));}
+.icon-chip.-orange{background:rgba(255,72,0,0.12); color:var(--accent-deep);}
+.icon-chip.-blue{background:#E7EFF6; color:#2F5D7C;}
+.icon-chip.-sage{background:#EAF1E6; color:#3E6B45;}
+.icon-chip.-lg{width:64px; height:64px; border-radius:20px;}
+.icon-chip.-lg svg{width:32px; height:32px;}
+
+/* ===== WORKFLOW GRAPH ===== */
+.workflow-graph{position:absolute; inset:0; z-index:0; pointer-events:none; opacity:0.12;}
+.workflow-graph .wf-node{animation:wf-pulse 2.4s ease-in-out infinite;}
+.workflow-graph .wf-line{stroke-dasharray:6 6; animation:wf-flow 3s linear infinite;}
+@keyframes wf-pulse{0%,100%{opacity:.5;} 50%{opacity:1;}}
+@keyframes wf-flow{to{stroke-dashoffset:-24;}}
+@media (prefers-reduced-motion: reduce){
+  .workflow-graph .wf-node, .workflow-graph .wf-line{animation:none;}
+}
