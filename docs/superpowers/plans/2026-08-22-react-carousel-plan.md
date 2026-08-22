@@ -6,7 +6,7 @@
 
 **Architecture:** Next.js 15 App Router + TypeScript, plain CSS (`app/globals.css`) porting the current site's exact design tokens. Each page section is one React component; `ProductsCarousel` is a client component using native CSS scroll-snap plus an `IntersectionObserver` to drive dot/arrow state. `WorkflowGraph` is a small pure-SVG component reused per product card.
 
-**Tech Stack:** Next.js 15.0.3, React 18.3.1, TypeScript 5.6.3. No UI framework, no Tailwind, no animation library — CSS only.
+**Tech Stack:** Next.js 15.0.5, React 18.3.1, TypeScript 5.6.3. No UI framework, no Tailwind, no animation library — CSS only. (Next.js pinned to 15.0.5, not 15.0.3 — 15.0.0–15.0.4 carry CVE-2025-66478, a CVSS 10.0 unauthenticated RCE in the App Router's React Server Components protocol; fixed starting 15.0.5. See ledger ruling under Task 1.)
 
 **Spec:** `/Users/vinoth/project/vinai-portfolio-next/docs/superpowers/specs/2026-08-22-react-carousel-design.md`
 
@@ -52,7 +52,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "next": "15.0.3",
+    "next": "15.0.5",
     "react": "18.3.1",
     "react-dom": "18.3.1"
   },
