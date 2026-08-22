@@ -294,3 +294,12 @@ nav.links a:hover{color:var(--accent-deep);}
 }
 .solutions-grid .reveal:nth-child(2){transition-delay:.08s;}
 .solutions-grid .reveal:nth-child(3){transition-delay:.16s;}
+
+/* ===== ABOUT ===== */
+.about-grid{max-width:640px; margin:0 auto; text-align:center;}
+.about-copy p{font-size:16.5px; color:var(--ink); margin:0 0 18px;}
+.about-copy p:last-child{margin-bottom:0;}
+.signature-line{
+  margin-top:26px; font-family:'IBM Plex Mono',monospace; font-size:12px;
+  color:var(--grey-light);
+}

@@ -3,6 +3,7 @@ import Nav from '@/components/Nav';
 import Hero from '@/components/Hero';
 import ProductsCarousel from '@/components/ProductsCarousel';
 import Solutions from '@/components/Solutions';
+import About from '@/components/About';
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
         <Hero />
         <ProductsCarousel />
         <Solutions />
+        <About />
       </main>
     </>
   );
