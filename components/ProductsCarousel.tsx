@@ -7,6 +7,7 @@ import ProductCard from './ProductCard';
 export default function ProductsCarousel() {
   const trackRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const ratiosRef = useRef<number[]>(new Array(products.length).fill(0));
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
@@ -16,13 +17,22 @@ export default function ProductsCarousel() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = cardRefs.current.findIndex((el) => el === entry.target);
-            if (index !== -1) setActiveIndex(index);
+          const index = cardRefs.current.findIndex((el) => el === entry.target);
+          if (index !== -1) {
+            ratiosRef.current[index] = entry.intersectionRatio;
           }
         });
+        let maxIndex = 0;
+        let maxRatio = -1;
+        ratiosRef.current.forEach((ratio, i) => {
+          if (ratio > maxRatio) {
+            maxRatio = ratio;
+            maxIndex = i;
+          }
+        });
+        setActiveIndex(maxIndex);
       },
-      { root: track, threshold: 0.6 }
+      { root: track, threshold: [0, 0.25, 0.5, 0.6, 0.75, 1] }
     );
 
     cardRefs.current.forEach((card) => {
