@@ -232,3 +232,33 @@ nav.links a:hover{color:var(--accent-deep);}
 @media (prefers-reduced-motion: reduce){
   .workflow-graph .wf-node, .workflow-graph .wf-line{animation:none;}
 }
+
+/* ===== PRODUCTS CAROUSEL ===== */
+.carousel-outer{position:relative;}
+.carousel-track{
+  display:flex; gap:20px; overflow-x:auto;
+  scroll-snap-type:x mandatory; scroll-behavior:smooth;
+  padding:4px 4px 8px;
+  -ms-overflow-style:none; scrollbar-width:none;
+}
+.carousel-track::-webkit-scrollbar{display:none;}
+.carousel-card-wrap{flex:0 0 auto; width:min(520px, 85vw); scroll-snap-align:start;}
+@media(max-width:640px){ .carousel-card-wrap{width:88vw;} }
+
+.carousel-controls{display:flex; align-items:center; justify-content:center; gap:20px; margin-top:28px;}
+.carousel-arrow{
+  width:44px; height:44px; border-radius:50%; border:none;
+  background:var(--card); box-shadow:var(--shadow-sm);
+  display:flex; align-items:center; justify-content:center; cursor:pointer; color:var(--ink);
+  transition:box-shadow .15s, transform .15s, opacity .15s;
+}
+.carousel-arrow:hover:not(:disabled){box-shadow:var(--shadow-md); transform:translateY(-1px);}
+.carousel-arrow:disabled{opacity:.35; cursor:default;}
+.carousel-arrow svg{width:18px; height:18px;}
+.carousel-dots{display:flex; gap:8px;}
+.carousel-dot{
+  width:8px; height:8px; border-radius:50%; border:none;
+  background:rgba(31,31,31,0.18); padding:0; cursor:pointer;
+  transition:background .15s, transform .15s;
+}
+.carousel-dot.active{background:var(--accent); transform:scale(1.3);}
