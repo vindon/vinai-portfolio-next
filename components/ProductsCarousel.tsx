@@ -93,7 +93,10 @@ export default function ProductsCarousel() {
     if (!card || !track) return;
 
     const maxScroll = track.scrollWidth - track.clientWidth;
-    const rawTarget = card.offsetLeft - track.offsetLeft;
+    // Cards are centered (scroll-snap-align: center), so the scroll target
+    // is the card's offset minus half the leftover space between the card
+    // and the track's visible width - not a flush-left offset.
+    const rawTarget = card.offsetLeft - track.offsetLeft - (track.clientWidth - card.offsetWidth) / 2;
     const clampedTarget = Math.max(0, Math.min(rawTarget, maxScroll));
 
     let target = clampedTarget;
