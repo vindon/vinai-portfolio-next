@@ -132,6 +132,7 @@ export default function ProductsCarousel() {
     <section id="products" className="section-deco">
       <div className="bg-blob -products-a" aria-hidden="true"></div>
       <div className="bg-blob -products-b" aria-hidden="true"></div>
+      <div className="bg-blob -products-c" aria-hidden="true"></div>
       <div className="wrap">
         <div className="section-head reveal">
           <p className="kicker">Products</p>

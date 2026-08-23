@@ -6,6 +6,7 @@ export default function Solutions() {
     <section id="solutions" className="section-deco">
       <div className="bg-blob -solutions-a" aria-hidden="true"></div>
       <div className="bg-blob -solutions-b" aria-hidden="true"></div>
+      <div className="bg-blob -solutions-c" aria-hidden="true"></div>
       <div className="wrap">
         <div className="section-head reveal">
           <p className="kicker">Solutions</p>

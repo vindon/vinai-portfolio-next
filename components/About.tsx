@@ -3,6 +3,7 @@ export default function About() {
     <section id="about" className="section-deco">
       <div className="bg-blob -about-a" aria-hidden="true"></div>
       <div className="bg-blob -about-b" aria-hidden="true"></div>
+      <div className="bg-blob -about-c" aria-hidden="true"></div>
       <div className="wrap">
         <div className="about-grid">
           <p className="kicker">About</p>
