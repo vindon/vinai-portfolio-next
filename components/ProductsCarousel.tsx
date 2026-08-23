@@ -87,12 +87,35 @@ export default function ProductsCarousel() {
   }, []);
 
   const scrollToIndex = (index: number) => {
-    const clamped = Math.max(0, Math.min(index, products.length - 1));
-    const card = cardRefs.current[clamped];
+    const clampedIndex = Math.max(0, Math.min(index, products.length - 1));
     const track = trackRef.current;
-    if (card && track) {
-      track.scrollTo({ left: card.offsetLeft - track.offsetLeft, behavior: 'smooth' });
+    const card = cardRefs.current[clampedIndex];
+    if (!card || !track) return;
+
+    const maxScroll = track.scrollWidth - track.clientWidth;
+    const rawTarget = card.offsetLeft - track.offsetLeft;
+    const clampedTarget = Math.max(0, Math.min(rawTarget, maxScroll));
+
+    let target = clampedTarget;
+
+    // At either end of the track, more than one card can be fully visible
+    // at once, so a card's own "flush-left" scroll position can fall past
+    // what's actually scrollable and clamp back onto wherever we already
+    // are — e.g. clicking "prev" from the fully-scrolled-right state was a
+    // no-op, because the target card's true offset exceeded maxScroll and
+    // clamped straight back to the current position. When the clamped
+    // target doesn't move us but the caller asked for a different index,
+    // step by one card-width in the requested direction instead, so
+    // navigation always makes visible progress.
+    if (Math.abs(clampedTarget - track.scrollLeft) < 2 && clampedIndex !== activeIndex) {
+      const firstCard = cardRefs.current[0];
+      const secondCard = cardRefs.current[1];
+      const step = firstCard && secondCard ? secondCard.offsetLeft - firstCard.offsetLeft : card.offsetWidth;
+      const direction = clampedIndex > activeIndex ? 1 : -1;
+      target = Math.max(0, Math.min(track.scrollLeft + direction * step, maxScroll));
     }
+
+    track.scrollTo({ left: target, behavior: 'smooth' });
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
