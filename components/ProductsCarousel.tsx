@@ -65,14 +65,15 @@ export default function ProductsCarousel() {
       if (card) observer.observe(card);
     });
 
-    // The IntersectionObserver fires during scroll animation as thresholds cross,
-    // but does NOT fire after the smooth scroll animation completes if no ratio
-    // changes occur. At the scroll boundary (max scroll reached), both card 4 and 5
-    // are visible; the smooth scroll stops when browser max-scroll is hit, but the
-    // observer doesn't re-fire if intersection ratios remain unchanged from the
-    // last threshold event. The scroll listener ensures updateActiveIndex() runs
-    // after the animation settles, catching the boundary case via explicit scroll
-    // position checks. Without it, the carousel gets stuck at index 4.
+    // The scroll listener is required. At the maximum scroll position, both card 4 and
+    // card 5 are simultaneously visible in the viewport with identical intersection
+    // ratios (both 100% visible). The IntersectionObserver fires during the smooth
+    // scroll animation as thresholds cross, but the ratio-tiebreak logic consistently
+    // favors card 4 (lower index) due to how ratios stabilize during animation. When
+    // the smooth scroll completes and settles at max scroll, the observer no longer
+    // fires (no threshold changes), leaving the carousel stuck at index 4. The scroll
+    // listener ensures updateActiveIndex() checks the final scroll position via the
+    // explicit boundary detection (scrollLeft >= maxScroll - 1 → force index 5).
     const handleScroll = () => {
       updateActiveIndex();
     };
