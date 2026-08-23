@@ -14,6 +14,12 @@ export default function ProductsCarousel() {
     const track = trackRef.current;
     if (!track) return;
 
+    // Multi-threshold + max-ratio-wins: at desktop widths, two cards can be
+    // simultaneously visible, so a single threshold can fire on more than
+    // one card in the same viewport. Tracking each card's latest ratio and
+    // picking the highest keeps the active index correct regardless of how
+    // many cards are visible at once. Ties (equal ratios) favor the lower
+    // index, which in practice means the leading/most-progressed card wins.
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -113,6 +119,7 @@ export default function ProductsCarousel() {
                   key={product.id}
                   className={`carousel-dot${i === activeIndex ? ' active' : ''}`}
                   aria-label={`Go to ${product.title}`}
+                  aria-current={i === activeIndex}
                   onClick={() => scrollToIndex(i)}
                 />
               ))}
