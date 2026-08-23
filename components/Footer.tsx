@@ -8,7 +8,7 @@ export default function Footer() {
             <p>AI strategy, agentic products, and CX automation — built and advised on by Vinoth Nataraj.</p>
           </div>
           <div>
-            <h4>Navigate</h4>
+            <h3>Navigate</h3>
             <ul className="flinks">
               <li><a href="#about">About</a></li>
               <li><a href="#products">Products</a></li>
@@ -16,7 +16,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4>Contact</h4>
+            <h3>Contact</h3>
             <ul className="flinks">
               <li><a href="mailto:vinoth.n@outlook.com">vinoth.n@outlook.com</a></li>
               <li>
