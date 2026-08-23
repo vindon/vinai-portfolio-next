@@ -65,6 +65,14 @@ export default function ProductsCarousel() {
       if (card) observer.observe(card);
     });
 
+    // The IntersectionObserver fires during scroll animation as thresholds cross,
+    // but does NOT fire after the smooth scroll animation completes if no ratio
+    // changes occur. At the scroll boundary (max scroll reached), both card 4 and 5
+    // are visible; the smooth scroll stops when browser max-scroll is hit, but the
+    // observer doesn't re-fire if intersection ratios remain unchanged from the
+    // last threshold event. The scroll listener ensures updateActiveIndex() runs
+    // after the animation settles, catching the boundary case via explicit scroll
+    // position checks. Without it, the carousel gets stuck at index 4.
     const handleScroll = () => {
       updateActiveIndex();
     };
