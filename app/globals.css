@@ -211,8 +211,8 @@ nav.links a:hover{color:var(--accent-deep);}
   font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.06em; text-transform:uppercase;
   color:var(--tcolor-strong, var(--accent-deep)); font-weight:700;
 }
-.problem-box p{font-size:13.5px; color:var(--ink); line-height:1.5; margin:0; font-weight:500;}
-.product-desc{align-self:stretch; text-align:left; font-size:14.5px; color:var(--grey); line-height:1.6;}
+.problem-box p{font-size:14.5px; color:var(--ink); line-height:1.5; margin:0; font-weight:500;}
+.product-desc{align-self:stretch; text-align:left; font-size:15.5px; color:var(--ink); line-height:1.6;}
 .tech-tags{
   align-self:stretch; text-align:left;
   margin-top:auto; padding-top:14px; border-top:1px solid rgba(31,31,31,0.12);
