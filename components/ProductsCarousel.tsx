@@ -18,8 +18,36 @@ export default function ProductsCarousel() {
     // simultaneously visible, so a single threshold can fire on more than
     // one card in the same viewport. Tracking each card's latest ratio and
     // picking the highest keeps the active index correct regardless of how
-    // many cards are visible at once. Ties (equal ratios) favor the lower
-    // index, which in practice means the leading/most-progressed card wins.
+    // many cards are visible at once. Scroll-boundary detection is checked
+    // first (forces index 0/last at the true start/end) since ratio ties
+    // are unavoidable there at wide viewports; ratio-tiebreak handles
+    // interior positions. Ties (equal ratios) favor the lower index, which
+    // in practice means the leading/most-progressed card wins.
+    const updateActiveIndex = () => {
+      const trackEl = trackRef.current;
+      if (!trackEl) return;
+
+      const maxScroll = trackEl.scrollWidth - trackEl.clientWidth;
+      if (trackEl.scrollLeft <= 1) {
+        setActiveIndex(0);
+        return;
+      }
+      if (trackEl.scrollLeft >= maxScroll - 1) {
+        setActiveIndex(products.length - 1);
+        return;
+      }
+
+      let maxIndex = 0;
+      let maxRatio = -1;
+      ratiosRef.current.forEach((ratio, i) => {
+        if (ratio > maxRatio) {
+          maxRatio = ratio;
+          maxIndex = i;
+        }
+      });
+      setActiveIndex(maxIndex);
+    };
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -28,15 +56,7 @@ export default function ProductsCarousel() {
             ratiosRef.current[index] = entry.intersectionRatio;
           }
         });
-        let maxIndex = 0;
-        let maxRatio = -1;
-        ratiosRef.current.forEach((ratio, i) => {
-          if (ratio > maxRatio) {
-            maxRatio = ratio;
-            maxIndex = i;
-          }
-        });
-        setActiveIndex(maxIndex);
+        updateActiveIndex();
       },
       { root: track, threshold: [0, 0.25, 0.5, 0.6, 0.75, 1] }
     );
@@ -45,7 +65,16 @@ export default function ProductsCarousel() {
       if (card) observer.observe(card);
     });
 
-    return () => observer.disconnect();
+    const handleScroll = () => {
+      updateActiveIndex();
+    };
+
+    track.addEventListener('scroll', handleScroll);
+
+    return () => {
+      observer.disconnect();
+      track.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const scrollToIndex = (index: number) => {
