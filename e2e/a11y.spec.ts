@@ -7,6 +7,6 @@ test.describe('Accessibility', () => {
     await page.locator('#about').scrollIntoViewIfNeeded();
 
     const results = await new AxeBuilder({ page }).analyze();
-    expect(results.violations).toEqual([]);
+    expect(results.violations.map((v) => `${v.id}: ${v.nodes.length} node(s)`)).toEqual([]);
   });
 });
