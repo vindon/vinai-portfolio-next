@@ -176,30 +176,23 @@ nav.links a:hover{color:var(--accent-deep);}
      clear WCAG AA (4.5:1) — raw --tcolor values like #FF4800 read as
      "bold" visually but are too light for white text at ~3.4:1. */
   --tcolor-strong: color-mix(in srgb, var(--tcolor, var(--accent)) 75%, black);
+  /* Flat: plain white, no gradient wash, no shadow, no hover-lift. The
+     product's color shows up only through the top stripe and the icon/
+     tag/problem-label accents below - not a "card" surface. */
   background:var(--card);
-  background:
-    linear-gradient(180deg,
-      color-mix(in srgb, var(--tcolor, var(--accent)) 22%, white) 0%,
-      var(--card) 62%);
   border:none; border-radius:var(--radius-lg);
-  box-shadow:var(--shadow-card);
-  transition:transform .18s ease, box-shadow .18s ease;
   flex:1;
 }
 .product-card::before{
-  content:""; position:absolute; top:0; left:0; right:0; height:8px;
+  content:""; position:absolute; top:0; left:0; right:0; height:6px;
   background:var(--tcolor, var(--accent));
   border-radius:var(--radius-lg) var(--radius-lg) 0 0;
   z-index:2;
 }
-.product-card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 20px 40px -14px var(--tcolor, var(--accent)), var(--shadow-card);
-}
 .product-card-content{
   position:relative; z-index:1;
   display:flex; flex-direction:column; align-items:center; text-align:center; gap:14px;
-  padding:38px 30px 30px;
+  padding:34px 30px 30px;
 }
 .stage-tag{
   font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.06em; text-transform:uppercase;
@@ -210,9 +203,8 @@ nav.links a:hover{color:var(--accent-deep);}
 .product-card h3{font-size:23px; line-height:1.2; font-weight:800; letter-spacing:-0.015em;}
 .problem-box{
   align-self:stretch; text-align:left;
-  background:var(--card); border-radius:14px;
-  padding:14px 16px; display:flex; flex-direction:column; gap:4px;
-  box-shadow:0 1px 2px rgba(31,31,31,0.06);
+  border-left:3px solid var(--tcolor-strong, var(--accent-deep));
+  padding:2px 0 2px 14px; display:flex; flex-direction:column; gap:4px;
 }
 .problem-label{
   font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.06em; text-transform:uppercase;
@@ -227,8 +219,7 @@ nav.links a:hover{color:var(--accent-deep);}
 }
 .tech-chip{
   font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--tcolor, var(--grey));
-  background:var(--card); border-radius:var(--radius-pill); padding:4px 10px;
-  box-shadow:0 1px 2px rgba(31,31,31,0.06);
+  background:transparent; border:1px solid rgba(31,31,31,0.14); border-radius:var(--radius-pill); padding:4px 10px;
 }
 
 /* ===== ICON CHIPS ===== */
