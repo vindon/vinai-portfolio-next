@@ -29,6 +29,15 @@ test.describe('Responsive layout', () => {
 
   for (const bp of breakpoints) {
     test(`visual regression: full page at ${bp.name} (${bp.width}px)`, async ({ page }) => {
+      // Sections below the fold (including the entire Products carousel)
+      // fade in via a .reveal -> .reveal.in opacity transition, triggered
+      // by an IntersectionObserver against the page viewport — at a fixed
+      // breakpoint height they never actually scroll into view during
+      // capture, so without this they'd stay at opacity:0 and this
+      // "full page" screenshot would silently never show most of the
+      // page's real content. Reduced motion makes every .reveal element
+      // render at opacity:1 from first paint instead (see globals.css).
+      await page.emulateMedia({ reducedMotion: 'reduce' });
       await page.setViewportSize({ width: bp.width, height: bp.height });
       await page.goto('/');
       await page.locator('.hero').waitFor();
