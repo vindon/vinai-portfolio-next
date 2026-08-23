@@ -41,17 +41,6 @@ jobs:
       - name: E2E, visual regression, and accessibility tests
         run: npm run test:e2e
 
-      - name: TEMP - generate Linux visual-regression baselines
-        if: always()
-        run: npx playwright test e2e/responsive.spec.ts --update-snapshots
-
-      - name: TEMP - upload generated baselines
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: linux-baselines
-          path: e2e/responsive.spec.ts-snapshots/
-
       - name: Upload Playwright report
         if: always()
         uses: actions/upload-artifact@v4
