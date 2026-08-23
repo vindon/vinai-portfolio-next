@@ -9,7 +9,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
-    "lint": "next lint"
+    "lint": "next lint",
+    "verify": "npm run lint && npm run test && npm run build && npm run test:e2e"
   },
   "dependencies": {
     "next": "15.5.23",
