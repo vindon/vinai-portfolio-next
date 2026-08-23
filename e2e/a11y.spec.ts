@@ -25,7 +25,21 @@ test.describe('Accessibility', () => {
     const fullHeight = await page.evaluate(() => document.documentElement.scrollHeight);
     await page.setViewportSize({ width: 1280, height: fullHeight });
 
-    const results = await new AxeBuilder({ page }).analyze();
-    expect(results.violations.map((v) => `${v.id}: ${v.nodes.length} node(s)`)).toEqual([]);
+    // The viewport-height fix above only solves vertical blindness. The
+    // Products carousel scrolls horizontally within its own track, and
+    // that's a second, independent way for content to sit outside the
+    // viewport that axe's paint-based sampling can't see — no page height,
+    // however large, brings a horizontally-clipped card into view. Scan
+    // once per card, scrolling each into the track's visible area first,
+    // and merge results (deduplicating via a Set, since every scan also
+    // re-covers the rest of the page, which hasn't moved).
+    const violations = new Set<string>();
+    const cardCount = await page.locator('.carousel-card-wrap').count();
+    for (let i = 0; i < cardCount; i++) {
+      await page.locator('.carousel-card-wrap').nth(i).scrollIntoViewIfNeeded();
+      const results = await new AxeBuilder({ page }).analyze();
+      results.violations.forEach((v) => violations.add(`${v.id}: ${v.nodes.length} node(s)`));
+    }
+    expect([...violations]).toEqual([]);
   });
 });
