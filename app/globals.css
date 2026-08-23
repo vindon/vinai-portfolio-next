@@ -173,12 +173,13 @@ nav.links a:hover{color:var(--accent-deep);}
 .product-card{
   position:relative; overflow:hidden;
   /* Darkened by ~25% toward black so white text/icons placed on it always
-     clear WCAG AA (4.5:1) — raw --tcolor values like #FF4800 read as
-     "bold" visually but are too light for white text at ~3.4:1. */
-  --tcolor-strong: color-mix(in srgb, var(--tcolor, var(--accent)) 75%, black);
-  /* Flat: plain white, no gradient wash, no shadow, no hover-lift. The
-     product's color shows up only through the top stripe and the icon/
-     tag/problem-label accents below - not a "card" surface. */
+     clear WCAG AA (4.5:1) — raw --accent (#FF4800) reads as "bold"
+     visually but is too light for white text at ~3.4:1. Every card uses
+     this same single accent - there is no per-product --tcolor anymore. */
+  --tcolor-strong: color-mix(in srgb, var(--accent) 75%, black);
+  /* Flat: plain white, no gradient wash, no shadow, no hover-lift. One
+     consistent brand-orange accent (top stripe, icon chip, badges,
+     labels) - not a per-product color, not a "card" surface. */
   background:var(--card);
   border:none; border-radius:var(--radius-lg);
   flex:1;
@@ -203,8 +204,8 @@ nav.links a:hover{color:var(--accent-deep);}
 .product-card h3{font-size:23px; line-height:1.2; font-weight:800; letter-spacing:-0.015em;}
 .problem-box{
   align-self:stretch; text-align:left;
-  border-left:3px solid var(--tcolor-strong, var(--accent-deep));
-  padding:2px 0 2px 14px; display:flex; flex-direction:column; gap:4px;
+  background:var(--bg-soft); border-radius:14px;
+  padding:14px 16px; display:flex; flex-direction:column; gap:4px;
 }
 .problem-label{
   font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.06em; text-transform:uppercase;
@@ -277,7 +278,7 @@ nav.links a:hover{color:var(--accent-deep);}
 }
 .carousel-arrow:hover:not(:disabled){
   box-shadow:var(--shadow-md); transform:translateY(-1px);
-  color:var(--active-tcolor, var(--ink));
+  color:var(--accent);
 }
 .carousel-arrow:disabled{opacity:.35; cursor:default;}
 .carousel-arrow svg{width:18px; height:18px;}
@@ -287,7 +288,7 @@ nav.links a:hover{color:var(--accent-deep);}
   background:rgba(31,31,31,0.18); padding:0; cursor:pointer;
   transition:background .2s ease, width .2s ease;
 }
-.carousel-dot.active{width:26px; background:var(--active-tcolor, var(--accent));}
+.carousel-dot.active{width:26px; background:var(--accent);}
 
 @media (prefers-reduced-motion: reduce){
   .carousel-track{scroll-behavior:auto;}

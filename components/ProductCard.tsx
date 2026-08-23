@@ -2,14 +2,9 @@ import type { Product } from '@/lib/products';
 import WorkflowGraph from './WorkflowGraph';
 
 export default function ProductCard({ product }: { product: Product }) {
-  const cardStyle = {
-    '--tcolor': product.color,
-    '--ttint': product.tint,
-  } as React.CSSProperties;
-
   return (
-    <div className="product-card" style={cardStyle}>
-      <WorkflowGraph nodes={product.pipeline} color={product.color} />
+    <div className="product-card">
+      <WorkflowGraph nodes={product.pipeline} color="var(--accent)" />
       <div className="product-card-content">
         <div className="icon-chip">{product.icon}</div>
         <span className={`stage-tag${product.isExploration ? ' explore' : ''}`}>{product.stageTag}</span>

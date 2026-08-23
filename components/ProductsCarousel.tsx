@@ -165,10 +165,7 @@ export default function ProductsCarousel() {
             ))}
           </div>
 
-          <div
-            className="carousel-controls"
-            style={{ '--active-tcolor': products[activeIndex].color } as React.CSSProperties}
-          >
+          <div className="carousel-controls">
             <button
               type="button"
               className="carousel-arrow"
