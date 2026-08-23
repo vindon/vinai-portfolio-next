@@ -42,9 +42,11 @@ jobs:
         run: npm run test:e2e
 
       - name: TEMP - generate Linux visual-regression baselines
+        if: always()
         run: npx playwright test e2e/responsive.spec.ts --update-snapshots
 
       - name: TEMP - upload Linux baselines
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: linux-visual-baselines
