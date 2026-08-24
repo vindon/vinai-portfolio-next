@@ -32,7 +32,7 @@ describe('CookieConsent', () => {
     const CookieConsent = await loadComponent('test-token');
     render(<CookieConsent />);
     await waitFor(() => {
-      expect(screen.getByRole('dialog', { name: /cookie notice/i })).toBeInTheDocument();
+      expect(screen.getByRole('region', { name: /cookie notice/i })).toBeInTheDocument();
     });
     expect(screen.getByRole('button', { name: 'Accept' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Decline' })).toBeInTheDocument();
@@ -47,7 +47,7 @@ describe('CookieConsent', () => {
     await user.click(acceptButton);
 
     expect(window.localStorage.getItem(STORAGE_KEY)).toBe('accepted');
-    expect(screen.queryByRole('dialog', { name: /cookie notice/i })).not.toBeInTheDocument();
+    expect(screen.queryByRole('region', { name: /cookie notice/i })).not.toBeInTheDocument();
   });
 
   it('hides the banner and stores the choice after declining, without loading the beacon script', async () => {
@@ -59,7 +59,7 @@ describe('CookieConsent', () => {
     await user.click(declineButton);
 
     expect(window.localStorage.getItem(STORAGE_KEY)).toBe('declined');
-    expect(screen.queryByRole('dialog', { name: /cookie notice/i })).not.toBeInTheDocument();
+    expect(screen.queryByRole('region', { name: /cookie notice/i })).not.toBeInTheDocument();
     expect(document.querySelector('script[src*="cloudflareinsights"]')).not.toBeInTheDocument();
   });
 
@@ -69,7 +69,7 @@ describe('CookieConsent', () => {
     render(<CookieConsent />);
 
     await waitFor(() => {
-      expect(screen.queryByRole('dialog', { name: /cookie notice/i })).not.toBeInTheDocument();
+      expect(screen.queryByRole('region', { name: /cookie notice/i })).not.toBeInTheDocument();
     });
   });
 });

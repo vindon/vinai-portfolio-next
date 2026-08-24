@@ -19,6 +19,10 @@
   --shadow-card:0 1px 2px rgba(31,31,31,0.04), 0 8px 24px rgba(31,31,31,0.08);
   --font-sans:var(--font-inter), -apple-system, sans-serif;
   --font-mono:var(--font-ibm-plex-mono), monospace;
+  /* Shared by .hero and #about below. app/opengraph-image.tsx renders in a
+     separate pipeline (Satori/next-og, no CSS access) and duplicates this
+     literal by necessity — keep both in sync if this ever changes. */
+  --gradient-warm:linear-gradient(160deg, #FFF8F0 0%, #FFFFFF 55%, #FDEEE4 100%);
 }
 
 *{box-sizing:border-box;}
@@ -79,7 +83,7 @@ section{padding:88px 0;}
 }
 
 #about{
-  background:linear-gradient(160deg, #FFF8F0 0%, #FFFFFF 55%, #FDEEE4 100%);
+  background:var(--gradient-warm);
 }
 
 /* ===== SCROLL REVEAL ===== */
@@ -142,7 +146,7 @@ nav.links a:hover{color:var(--accent-deep);}
 /* ===== HERO ===== */
 .hero{
   padding:96px 0 80px; border-bottom:1px solid var(--line-soft); text-align:center;
-  background:linear-gradient(160deg, #FFF8F0 0%, #FFFFFF 55%, #FDEEE4 100%);
+  background:var(--gradient-warm);
 }
 .hero h1{
   font-size:clamp(34px,5.5vw,58px); line-height:1.06; letter-spacing:-0.02em;
@@ -160,7 +164,10 @@ nav.links a:hover{color:var(--accent-deep);}
 .btn-primary{background:var(--accent-deep); color:#fff; border-color:var(--accent-deep); box-shadow:var(--shadow-sm);}
 .btn-primary:hover{background:var(--accent-deep); border-color:var(--accent-deep); box-shadow:var(--shadow-md); transform:translateY(-1px);}
 .btn-ghost{border-color:var(--ink); color:var(--ink); background:transparent;}
-.btn-ghost:hover{background:var(--ink); color:var(--bg); box-shadow:var(--shadow-md); transform:translateY(-1px);}
+/* Shared "lift" hover: dark fill + raised shadow, reused by .btn-demo below
+   so the two button systems can't silently drift apart. */
+.btn-ghost:hover, .btn-demo:hover{background:var(--ink); box-shadow:var(--shadow-md); transform:translateY(-1px);}
+.btn-ghost:hover{color:var(--bg);}
 
 .hero-proof{
   display:inline-flex; align-items:center; gap:8px;
@@ -226,7 +233,6 @@ nav.links a:hover{color:var(--accent-deep);}
   background:var(--accent-deep); color:#fff; font-size:13px; font-weight:700;
   transition:background .15s, box-shadow .15s, transform .15s;
 }
-.btn-demo:hover{background:var(--ink); box-shadow:var(--shadow-md); transform:translateY(-1px);}
 .btn-demo svg{width:14px; height:14px; flex-shrink:0;}
 .btn-demo-disabled{background:rgba(31,31,31,0.06); color:var(--grey-light); cursor:default;}
 .btn-demo-disabled:hover{background:rgba(31,31,31,0.06); box-shadow:none; transform:none;}

@@ -1,11 +1,11 @@
-export default function GrainOverlay({ id, opacity = 0.045 }: { id: string; opacity?: number }) {
+// Renders the single shared `site-grain` filter (see app/layout.tsx) as a
+// full-bleed rect. All three call sites (Hero, Solutions, About) reference
+// the same filter definition instead of each computing their own
+// feTurbulence/feColorMatrix pass.
+export default function GrainOverlay() {
   return (
     <svg className="grain-overlay" aria-hidden="true" preserveAspectRatio="none">
-      <filter id={id}>
-        <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" />
-        <feColorMatrix type="matrix" values={`0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 ${opacity} 0`} />
-      </filter>
-      <rect width="100%" height="100%" filter={`url(#${id})`} />
+      <rect width="100%" height="100%" filter="url(#site-grain)" />
     </svg>
   );
 }

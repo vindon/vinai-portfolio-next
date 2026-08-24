@@ -3,7 +3,7 @@ import GrainOverlay from './GrainOverlay';
 export default function Hero() {
   return (
     <section className="hero section-deco">
-      <GrainOverlay id="grain-hero" />
+      <GrainOverlay />
       <div className="wrap">
         <p className="kicker">AI Strategy · Product Building · CX Automation</p>
         <h1>AI systems built for production — not for demos.</h1>

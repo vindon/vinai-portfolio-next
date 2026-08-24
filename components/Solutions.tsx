@@ -5,7 +5,7 @@ import GrainOverlay from './GrainOverlay';
 export default function Solutions() {
   return (
     <section id="solutions" className="section-deco">
-      <GrainOverlay id="grain-solutions" />
+      <GrainOverlay />
       <div className="wrap">
         <div className="section-head reveal">
           <p className="kicker">Solutions</p>

@@ -6,10 +6,7 @@ export type Product = {
   problem: string;
   description: string;
   techTags: string[];
-  color: string;
-  tint: string;
   icon: React.ReactNode;
-  pipeline: string[];
   demoUrl: string;
 };
 
@@ -22,9 +19,6 @@ export const products: Product[] = [
     description:
       'A 4-agent triage system (Sentinel → Triage → Resolver → Escalation) that watches X, Reddit, Trustpilot, and app stores for telecom CX, sanitizes PII, and routes what actually matters to a human through a clear escalation gate, keeping alert volume manageable for the team.',
     techTags: ['LangGraph', 'FastMCP', 'Redis Streams', 'FastAPI'],
-    color: '#FF4800',
-    tint: 'rgba(255,72,0,0.12)',
-    pipeline: ['Sentinel', 'Triage', 'Resolver', 'Escalation'],
     demoUrl: '#',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
@@ -42,9 +36,6 @@ export const products: Product[] = [
     description:
       'A 7-node LangGraph pipeline that extracts 70+ structured fields per call using a six-phase call-anatomy framework, validated against 50,000+ real transcripts — giving CX leaders QA and insight data automatically, at full call volume.',
     techTags: ['Haiku 4.5', 'NVIDIA NIM Llama 3.3', 'Streamlit', '364 tests'],
-    color: '#2F5D7C',
-    tint: '#E7EFF6',
-    pipeline: ['Ingest', 'Diarize', 'Extract', 'Classify', 'Validate', 'Score', 'Report'],
     demoUrl: '#',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
@@ -60,9 +51,6 @@ export const products: Product[] = [
     description:
       'A 5-agent pipeline (Sentinel, Classifier, Scorer, Curator, Publisher) that harvests, scores, and curates signals from Reddit, Google Trends, and CFPB filings into a digest — so individuals and small teams get an early-warning system without paid monitoring tools.',
     techTags: ['LangGraph', 'PRAW', 'pytrends', 'CFPB API'],
-    color: '#3E6B45',
-    tint: '#EAF1E6',
-    pipeline: ['Sentinel', 'Classifier', 'Scorer', 'Curator', 'Publisher'],
     demoUrl: '#',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
@@ -81,9 +69,6 @@ export const products: Product[] = [
     description:
       'A Playwright-driven scraper feeding a two-pass extraction pipeline against a strict Pydantic schema, surfaced through a Streamlit UI — turning unstructured regulatory filings into clean, queryable data for compliance and fintech teams.',
     techTags: ['Playwright', 'Pydantic', 'Streamlit'],
-    color: '#5B4B8A',
-    tint: '#EDE9F5',
-    pipeline: ['Scrape', 'Extract Pass 1', 'Extract Pass 2', 'Validate', 'Serve'],
     demoUrl: '#',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
@@ -102,9 +87,6 @@ export const products: Product[] = [
     description:
       'Five production-grade RAG builds — HR Q&A, contract review, marketing content hub, hybrid-search tech docs, and a multi-agent IT helpdesk — run on Groq inference and local Ollama embeddings, proving the pattern across genuinely different document types.',
     techTags: ['Groq', 'Ollama', 'Hybrid Search'],
-    color: '#1F7A6C',
-    tint: '#E3F2EF',
-    pipeline: ['Ingest', 'Embed', 'Retrieve', 'Rerank', 'Generate'],
     demoUrl: '#',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
@@ -123,9 +105,6 @@ export const products: Product[] = [
     description:
       'An agentic research pipeline being evaluated as a retainer or report-based product — currently being tested against real client use cases before I commit build time to it.',
     techTags: ['Agentic Research', 'Concept Stage'],
-    color: '#9C6B12',
-    tint: '#FAEFDD',
-    pipeline: ['Query', 'Research', 'Synthesize', 'Report'],
     demoUrl: '#',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">

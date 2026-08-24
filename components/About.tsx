@@ -3,7 +3,7 @@ import GrainOverlay from './GrainOverlay';
 export default function About() {
   return (
     <section id="about" className="section-deco">
-      <GrainOverlay id="grain-about" opacity={0.05} />
+      <GrainOverlay />
       <div className="wrap">
         <div className="about-grid">
           <p className="kicker">About</p>

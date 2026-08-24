@@ -33,6 +33,12 @@ jobs:
         run: npm run test
 
       - name: Build
+        # A dummy analytics token so the e2e/a11y suite actually exercises
+        # CookieConsent — NEXT_PUBLIC_* vars are inlined at build time, so
+        # this can't be set later on the e2e/webServer step. It never beacons
+        # anywhere meaningful; it just needs to be a non-empty string.
+        env:
+          NEXT_PUBLIC_CF_BEACON_TOKEN: test-token-e2e
         run: npm run build
 
       - name: Install Playwright browsers
