@@ -36,7 +36,7 @@ export const products: Product[] = [
     description:
       'A 7-node LangGraph pipeline that extracts 70+ structured fields per call using a six-phase call-anatomy framework, validated against 50,000+ real transcripts — giving CX leaders QA and insight data automatically, at full call volume.',
     techTags: ['Haiku 4.5', 'NVIDIA NIM Llama 3.3', 'Streamlit', '364 tests'],
-    demoUrl: '#',
+    demoUrl: 'https://telecom-call-intelligence.streamlit.app/',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
         <path d="M5 4h3l2 5-2 1.5a11 11 0 0 0 5.5 5.5L15 14l5 2v3a2 2 0 0 1-2 2C10 21 3 14 3 6a2 2 0 0 1 2-2z" />
