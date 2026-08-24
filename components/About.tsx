@@ -1,9 +1,9 @@
+import GrainOverlay from './GrainOverlay';
+
 export default function About() {
   return (
     <section id="about" className="section-deco">
-      <div className="bg-blob -about-a" aria-hidden="true"></div>
-      <div className="bg-blob -about-b" aria-hidden="true"></div>
-      <div className="bg-blob -about-c" aria-hidden="true"></div>
+      <GrainOverlay id="grain-about" opacity={0.05} />
       <div className="wrap">
         <div className="about-grid">
           <p className="kicker">About</p>
@@ -24,7 +24,6 @@ export default function About() {
             </p>
             <p>Based in Chennai, India. MBA, University of Sheffield.</p>
           </div>
-          <p className="signature-line">Thought by Vinoth. Built with Claude.</p>
         </div>
       </div>
     </section>

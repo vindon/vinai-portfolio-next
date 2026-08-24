@@ -1,12 +1,11 @@
 import { solutions } from '@/lib/solutions';
 import SolutionCard from './SolutionCard';
+import GrainOverlay from './GrainOverlay';
 
 export default function Solutions() {
   return (
     <section id="solutions" className="section-deco">
-      <div className="bg-blob -solutions-a" aria-hidden="true"></div>
-      <div className="bg-blob -solutions-b" aria-hidden="true"></div>
-      <div className="bg-blob -solutions-c" aria-hidden="true"></div>
+      <GrainOverlay id="grain-solutions" />
       <div className="wrap">
         <div className="section-head reveal">
           <p className="kicker">Solutions</p>

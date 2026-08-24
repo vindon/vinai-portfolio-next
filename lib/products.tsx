@@ -10,6 +10,7 @@ export type Product = {
   tint: string;
   icon: React.ReactNode;
   pipeline: string[];
+  demoUrl: string;
 };
 
 export const products: Product[] = [
@@ -24,6 +25,7 @@ export const products: Product[] = [
     color: '#FF4800',
     tint: 'rgba(255,72,0,0.12)',
     pipeline: ['Sentinel', 'Triage', 'Resolver', 'Escalation'],
+    demoUrl: '#',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 3 4.5 6v5.2c0 5 3.2 8.6 7.5 9.8 4.3-1.2 7.5-4.8 7.5-9.8V6z" />
@@ -43,6 +45,7 @@ export const products: Product[] = [
     color: '#2F5D7C',
     tint: '#E7EFF6',
     pipeline: ['Ingest', 'Diarize', 'Extract', 'Classify', 'Validate', 'Score', 'Report'],
+    demoUrl: '#',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
         <path d="M5 4h3l2 5-2 1.5a11 11 0 0 0 5.5 5.5L15 14l5 2v3a2 2 0 0 1-2 2C10 21 3 14 3 6a2 2 0 0 1 2-2z" />
@@ -60,6 +63,7 @@ export const products: Product[] = [
     color: '#3E6B45',
     tint: '#EAF1E6',
     pipeline: ['Sentinel', 'Classifier', 'Scorer', 'Curator', 'Publisher'],
+    demoUrl: '#',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 12V6.5" />
@@ -80,6 +84,7 @@ export const products: Product[] = [
     color: '#5B4B8A',
     tint: '#EDE9F5',
     pipeline: ['Scrape', 'Extract Pass 1', 'Extract Pass 2', 'Validate', 'Serve'],
+    demoUrl: '#',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
         <path d="M7 3h7l4 4v14H7z" />
@@ -100,6 +105,7 @@ export const products: Product[] = [
     color: '#1F7A6C',
     tint: '#E3F2EF',
     pipeline: ['Ingest', 'Embed', 'Retrieve', 'Rerank', 'Generate'],
+    demoUrl: '#',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 3 3.5 8l8.5 5 8.5-5z" />
@@ -120,6 +126,7 @@ export const products: Product[] = [
     color: '#9C6B12',
     tint: '#FAEFDD',
     pipeline: ['Query', 'Research', 'Synthesize', 'Report'],
+    demoUrl: '#',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
         <circle cx="10.5" cy="10.5" r="6.5" />

@@ -97,11 +97,5 @@ test.describe('Products carousel', () => {
       .locator('.carousel-track')
       .evaluate((el) => getComputedStyle(el).scrollBehavior);
     expect(scrollBehavior).toBe('auto');
-
-    const nodeAnimation = await page
-      .locator('.wf-node')
-      .first()
-      .evaluate((el) => getComputedStyle(el).animationName);
-    expect(nodeAnimation).toBe('none');
   });
 });

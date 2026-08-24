@@ -1,8 +1,9 @@
+import GrainOverlay from './GrainOverlay';
+
 export default function Hero() {
   return (
     <section className="hero section-deco">
-      <div className="bg-blob -hero-a" aria-hidden="true"></div>
-      <div className="bg-blob -hero-b" aria-hidden="true"></div>
+      <GrainOverlay id="grain-hero" />
       <div className="wrap">
         <p className="kicker">AI Strategy · Product Building · CX Automation</p>
         <h1>AI systems built for production — not for demos.</h1>

@@ -30,9 +30,22 @@ describe('ProductCard', () => {
     expect(screen.getByText(product.stageTag)).toHaveClass('explore');
   });
 
-  it('renders a WorkflowGraph with one node per pipeline stage', () => {
-    const product = products.find((p) => p.id === 'signalharvest')!;
-    const { container } = render(<ProductCard product={product} />);
-    expect(container.querySelectorAll('.wf-node')).toHaveLength(product.pipeline.length);
+  it('renders a disabled "coming soon" state when demoUrl is a placeholder', () => {
+    const product = products.find((p) => p.id === 'pulseguard')!;
+    expect(product.demoUrl).toBe('#');
+    render(<ProductCard product={product} />);
+    const demo = screen.getByText('Demo coming soon');
+    expect(demo.tagName).toBe('SPAN');
+    expect(demo).toHaveAttribute('aria-disabled', 'true');
+    expect(screen.queryByRole('link', { name: /view demo/i })).not.toBeInTheDocument();
+  });
+
+  it('renders a real external link when demoUrl is set', () => {
+    const product = { ...products[0], demoUrl: 'https://example.com/demo' };
+    render(<ProductCard product={product} />);
+    const link = screen.getByRole('link', { name: /view demo/i });
+    expect(link).toHaveAttribute('href', 'https://example.com/demo');
+    expect(link).toHaveAttribute('target', '_blank');
+    expect(link).toHaveAttribute('rel', 'noopener noreferrer');
   });
 });
