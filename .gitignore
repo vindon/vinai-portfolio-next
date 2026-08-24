@@ -3,6 +3,7 @@ node_modules
 next-env.d.ts
 .DS_Store
 *.local
+.env
 *.tsbuildinfo
 /test-results/
 /playwright-report/
