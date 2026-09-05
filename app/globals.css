@@ -11,6 +11,7 @@
   --accent-deep:#C93700;
   --accent-light:#FFD9BF;
   --accent-ink:#FFFFFF;
+  --accent-secondary:#1F3D3A;
   --radius-lg:28px;
   --radius:14px;
   --radius-pill:9999px;
@@ -200,7 +201,7 @@ nav.links a:hover{color:var(--accent-deep);}
   padding:5px 12px; border-radius:var(--radius-pill); font-weight:600;
   display:inline-flex; align-items:center; gap:6px;
 }
-.stage-tag::before{content:""; width:6px; height:6px; border-radius:50%; background:var(--accent); flex-shrink:0;}
+.stage-tag::before{content:""; width:6px; height:6px; border-radius:50%; background:var(--accent-secondary); flex-shrink:0;}
 .stage-tag.explore{color:var(--ink); background:rgba(31,31,31,0.06);}
 .stage-tag.explore::before{background:var(--grey-light);}
 .product-card h3{font-size:23px; line-height:1.2; font-weight:800; letter-spacing:-0.015em;}
