@@ -111,6 +111,7 @@ header.nav{
 @media(max-width:640px){ .nav-inner{padding:18px 20px;} }
 
 .brand-name{font-family:var(--font-sans); font-weight:800; font-size:21px; color:var(--ink);}
+.brand-block{display:inline-block; background:var(--accent); color:var(--accent-ink); font-weight:800; padding:1px 7px 2px; border-radius:4px; margin-left:1px;}
 .brand-tag{font-family:var(--font-mono); font-size:10px; letter-spacing:0.08em; color:var(--grey-light); text-transform:uppercase; display:block; margin-top:2px;}
 
 nav.links{display:flex; align-items:center; gap:36px;}

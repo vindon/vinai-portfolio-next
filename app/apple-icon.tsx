@@ -16,7 +16,7 @@ export default function AppleIcon() {
           background: '#1F1F1F',
         }}
       >
-        <div style={{ display: 'flex', color: '#FF4800', fontSize: 100, fontWeight: 800 }}>v</div>
+        <div style={{ display: 'flex', color: '#FF4800', fontSize: 100, fontWeight: 800 }}>B</div>
       </div>
     ),
     { ...size }

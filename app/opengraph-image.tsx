@@ -24,7 +24,12 @@ export default function OpengraphImage() {
           background: gradientWarm,
         }}
       >
-        <div style={{ display: 'flex', fontSize: 32, fontWeight: 800, color: '#1F1F1F' }}>firstbloc</div>
+        <div style={{ display: 'flex', fontSize: 32, fontWeight: 800, color: '#1F1F1F' }}>
+          first
+          <span style={{ display: 'flex', background: '#FF4800', color: '#FFFFFF', borderRadius: 6, padding: '0 10px 3px', marginLeft: 2 }}>
+            Bloc
+          </span>
+        </div>
         <div
           style={{
             display: 'flex',
