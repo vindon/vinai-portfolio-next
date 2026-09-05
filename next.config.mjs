@@ -2,6 +2,16 @@ const isDev = process.env.NODE_ENV !== 'production';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.firstbloc.in' }],
+        destination: 'https://firstbloc.in/:path*',
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     const headers = [
       { key: 'X-Content-Type-Options', value: 'nosniff' },

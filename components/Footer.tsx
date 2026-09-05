@@ -10,7 +10,7 @@ export default function Footer() {
             <p>AI strategy, agentic products, and CX automation.</p>
             <div className="social-icons">
               <a
-                href="https://x.com/vinothnataraj"
+                href="https://x.com/vinailead"
                 className="social-icon"
                 aria-label="X (Twitter)"
                 target="_blank"
