@@ -19,7 +19,7 @@ export const products: Product[] = [
     description:
       'A 4-agent triage system (Sentinel → Triage → Resolver → Escalation) that watches X, Reddit, Trustpilot, and app stores for telecom CX, sanitizes PII, and routes what actually matters to a human through a clear escalation gate, keeping alert volume manageable for the team.',
     techTags: ['LangGraph', 'FastMCP', 'Redis Streams', 'FastAPI'],
-    demoUrl: '#',
+    demoUrl: 'https://pulseguard-console.vercel.app/',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 3 4.5 6v5.2c0 5 3.2 8.6 7.5 9.8 4.3-1.2 7.5-4.8 7.5-9.8V6z" />
@@ -51,7 +51,7 @@ export const products: Product[] = [
     description:
       'A 5-agent pipeline (Sentinel, Classifier, Scorer, Curator, Publisher) that harvests, scores, and curates signals from Reddit, Google Trends, and CFPB filings into a digest — so individuals and small teams get an early-warning system without paid monitoring tools.',
     techTags: ['LangGraph', 'PRAW', 'pytrends', 'CFPB API'],
-    demoUrl: '#',
+    demoUrl: 'https://signalharvest-console.vercel.app/',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 12V6.5" />

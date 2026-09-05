@@ -31,7 +31,7 @@ describe('ProductCard', () => {
   });
 
   it('renders a disabled "coming soon" state when demoUrl is a placeholder', () => {
-    const product = products.find((p) => p.id === 'pulseguard')!;
+    const product = products.find((p) => p.id === 'cfpb')!;
     expect(product.demoUrl).toBe('#');
     render(<ProductCard product={product} />);
     const demo = screen.getByText('Demo coming soon');
