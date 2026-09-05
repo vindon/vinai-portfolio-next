@@ -2,7 +2,7 @@ import { describe, it, expect, afterEach, vi } from 'vitest';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-const STORAGE_KEY = 'vinai-cookie-consent';
+const STORAGE_KEY = 'firstbloc-cookie-consent';
 
 async function loadComponent(token: string | undefined) {
   vi.resetModules();

@@ -21,6 +21,6 @@ test.describe('Home page', () => {
 
   test('has the expected page title', async ({ page }) => {
     await page.goto('/');
-    await expect(page).toHaveTitle(/vinai/);
+    await expect(page).toHaveTitle(/firstbloc/);
   });
 });

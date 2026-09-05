@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Add automated component tests (Vitest + RTL), end-to-end/visual/accessibility tests (Playwright), linting (ESLint), and a GitHub Actions CI pipeline to the vinai-portfolio-next app.
+**Goal:** Add automated component tests (Vitest + RTL), end-to-end/visual/accessibility tests (Playwright), linting (ESLint), and a GitHub Actions CI pipeline to the firstbloc-portfolio-next app.
 
 **Architecture:** Vitest + React Testing Library test files sit next to the components they cover (`Component.test.tsx`). Playwright e2e/visual/a11y specs live in a top-level `e2e/` directory and run against a production build. A `verify` npm script chains lint → unit tests → build → e2e tests; a GitHub Actions workflow runs the same chain on every push and PR.
 
@@ -89,7 +89,7 @@ import Nav from './Nav';
 describe('Nav', () => {
   it('renders the brand and nav links', () => {
     render(<Nav />);
-    expect(screen.getByText('vinai')).toBeInTheDocument();
+    expect(screen.getByText('firstbloc')).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'About' })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Products' })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Solutions' })).toBeInTheDocument();
@@ -525,7 +525,7 @@ test.describe('Home page', () => {
 
   test('has the expected page title', async ({ page }) => {
     await page.goto('/');
-    await expect(page).toHaveTitle(/vinai/);
+    await expect(page).toHaveTitle(/firstbloc/);
   });
 });
 ```

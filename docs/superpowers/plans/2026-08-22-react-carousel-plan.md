@@ -1,14 +1,14 @@
-# vinai Portfolio React Rebuild + Products Carousel Implementation Plan
+# firstbloc Portfolio React Rebuild + Products Carousel Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Rebuild the vinai portfolio as a Next.js app and replace the static Products grid with a swipeable carousel where each card has an animated SVG "workflow" diagram behind it.
+**Goal:** Rebuild the firstbloc portfolio as a Next.js app and replace the static Products grid with a swipeable carousel where each card has an animated SVG "workflow" diagram behind it.
 
 **Architecture:** Next.js 15 App Router + TypeScript, plain CSS (`app/globals.css`) porting the current site's exact design tokens. Each page section is one React component; `ProductsCarousel` is a client component using native CSS scroll-snap plus an `IntersectionObserver` to drive dot/arrow state. `WorkflowGraph` is a small pure-SVG component reused per product card.
 
 **Tech Stack:** Next.js 15.0.5, React 18.3.1, TypeScript 5.6.3. No UI framework, no Tailwind, no animation library — CSS only. (Next.js pinned to 15.0.5, not 15.0.3 — 15.0.0–15.0.4 carry CVE-2025-66478, a CVSS 10.0 unauthenticated RCE in the App Router's React Server Components protocol; fixed starting 15.0.5. See ledger ruling under Task 1.)
 
-**Spec:** `/Users/vinoth/project/vinai-portfolio-next/docs/superpowers/specs/2026-08-22-react-carousel-design.md`
+**Spec:** `/Users/vinoth/project/firstbloc-portfolio-next/docs/superpowers/specs/2026-08-22-react-carousel-design.md`
 
 ## Global Constraints
 
@@ -43,7 +43,7 @@
 
 ```json
 {
-  "name": "vinai-portfolio-next",
+  "name": "firstbloc-portfolio-next",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -116,7 +116,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'vinai — Vinoth Nataraj | AI Strategy, Products & CX Automation',
+  title: 'firstbloc — Vinoth Nataraj | AI Strategy, Products & CX Automation',
   description:
     'AI strategy, agentic products, and CX automation by Vinoth Nataraj. Consulting, product builds, and fractional engagements.',
 };
@@ -272,7 +272,7 @@ export default function Home() {
   return (
     <main id="top">
       <ScrollReveal />
-      <h1 style={{ padding: '40px' }}>vinai</h1>
+      <h1 style={{ padding: '40px' }}>firstbloc</h1>
     </main>
   );
 }
@@ -280,13 +280,13 @@ export default function Home() {
 
 - [ ] **Step 9: Install dependencies**
 
-Run: `cd /Users/vinoth/project/vinai-portfolio-next && npm install`
+Run: `cd /Users/vinoth/project/firstbloc-portfolio-next && npm install`
 Expected: installs without error, creates `node_modules/` and `package-lock.json`.
 
 - [ ] **Step 10: Run the dev server and verify**
 
 Run: `npm run dev` (leave running, open `http://localhost:3000` in a browser)
-Expected: page loads with no console errors, shows "vinai" heading in bold Inter font (weight 800), background is white. Stop the dev server after confirming (Ctrl+C).
+Expected: page loads with no console errors, shows "firstbloc" heading in bold Inter font (weight 800), background is white. Stop the dev server after confirming (Ctrl+C).
 
 - [ ] **Step 11: Commit**
 
@@ -371,7 +371,7 @@ export default function Nav() {
     <header className="nav">
       <div className="nav-inner">
         <a href="#top" style={{ display: 'block' }}>
-          <span className="brand-name">vinai</span>
+          <span className="brand-name">firstbloc</span>
           <span className="brand-tag">AI Strategy &amp; Products</span>
         </a>
         <nav className={`links${open ? ' open' : ''}`}>
@@ -401,7 +401,7 @@ export default function Home() {
       <Nav />
       <main id="top">
         <ScrollReveal />
-        <h1 style={{ padding: '40px' }}>vinai</h1>
+        <h1 style={{ padding: '40px' }}>firstbloc</h1>
       </main>
     </>
   );
@@ -411,7 +411,7 @@ export default function Home() {
 - [ ] **Step 4: Verify in browser**
 
 Run: `npm run dev`, open `http://localhost:3000`
-Expected: sticky nav bar with "vinai" brand, About/Products/Solutions links, dark "Let's talk" pill button. Resize browser below 760px width — links collapse into hamburger menu; clicking the hamburger toggles the menu open/closed; clicking any link closes it.
+Expected: sticky nav bar with "firstbloc" brand, About/Products/Solutions links, dark "Let's talk" pill button. Resize browser below 760px width — links collapse into hamburger menu; clicking the hamburger toggles the menu open/closed; clicking any link closes it.
 
 - [ ] **Step 5: Commit**
 
@@ -1505,7 +1505,7 @@ export default function Footer() {
       <div className="wrap">
         <div className="footer-top">
           <div className="footer-brand">
-            <span className="brand-name">vinai</span>
+            <span className="brand-name">firstbloc</span>
             <p>AI strategy, agentic products, and CX automation — built and advised on by Vinoth Nataraj.</p>
           </div>
           <div>

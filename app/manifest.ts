@@ -2,8 +2,8 @@ import type { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'vinai — Vinoth Nataraj',
-    short_name: 'vinai',
+    name: 'firstbloc — Vinoth Nataraj',
+    short_name: 'firstbloc',
     description: 'AI strategy, agentic products, and CX automation by Vinoth Nataraj.',
     start_url: '/',
     display: 'standalone',

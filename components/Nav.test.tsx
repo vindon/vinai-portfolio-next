@@ -6,7 +6,7 @@ import Nav from './Nav';
 describe('Nav', () => {
   it('renders the brand and nav links', () => {
     render(<Nav />);
-    expect(screen.getByText('vinai')).toBeInTheDocument();
+    expect(screen.getByText('firstbloc')).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'About' })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Products' })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Solutions' })).toBeInTheDocument();

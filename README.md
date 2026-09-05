@@ -1,6 +1,6 @@
-# vinai portfolio
+# firstbloc portfolio
 
-Next.js portfolio site for Vinoth Nataraj (vinai).
+Next.js portfolio site for Vinoth Nataraj (firstbloc).
 
 ## Development
 

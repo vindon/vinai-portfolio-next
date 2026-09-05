@@ -4,7 +4,7 @@ export default function Footer() {
       <div className="wrap">
         <div className="footer-top">
           <div className="footer-brand">
-            <span className="brand-name">vinai</span>
+            <span className="brand-name">firstbloc</span>
             <p>AI strategy, agentic products, and CX automation — built and advised on by Vinoth Nataraj.</p>
             <div className="social-icons">
               <a

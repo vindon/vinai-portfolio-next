@@ -5,7 +5,7 @@ import Script from 'next/script';
 
 type Status = 'checking' | 'undecided' | 'accepted' | 'declined';
 
-const STORAGE_KEY = 'vinai-cookie-consent';
+const STORAGE_KEY = 'firstbloc-cookie-consent';
 const beaconToken = process.env.NEXT_PUBLIC_CF_BEACON_TOKEN;
 
 export default function CookieConsent() {

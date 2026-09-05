@@ -1,8 +1,8 @@
-# vinai portfolio — Testing framework, quality checks, and CI
+# firstbloc portfolio — Testing framework, quality checks, and CI
 
 ## Overview
 
-This project (the Next.js rebuild of the vinai portfolio, currently on
+This project (the Next.js rebuild of the firstbloc portfolio, currently on
 branch `worktree-react-carousel-plan` / PR #1) was deliberately built
 without an automated test suite — verification throughout was manual
 browser passes, `tsc --noEmit`, and `next build`. This spec adds real
@@ -62,7 +62,7 @@ unmerged branch adds process overhead with no real benefit here.
 ## File structure
 
 ```
-vinai-portfolio-next/
+firstbloc-portfolio-next/
   vitest.config.ts
   vitest.setup.ts          # jest-dom matchers, jsdom env
   playwright.config.ts

@@ -26,7 +26,7 @@ test.describe('Cookie consent', () => {
     await expect(page.locator('.cookie-banner')).toBeHidden();
 
     await expect
-      .poll(() => page.evaluate(() => window.localStorage.getItem('vinai-cookie-consent')))
+      .poll(() => page.evaluate(() => window.localStorage.getItem('firstbloc-cookie-consent')))
       .toBe('accepted');
     await expect(page.locator('script[src*="cloudflareinsights"]')).toHaveCount(1);
 
@@ -42,7 +42,7 @@ test.describe('Cookie consent', () => {
     await expect(page.locator('.cookie-banner')).toBeHidden();
 
     await expect
-      .poll(() => page.evaluate(() => window.localStorage.getItem('vinai-cookie-consent')))
+      .poll(() => page.evaluate(() => window.localStorage.getItem('firstbloc-cookie-consent')))
       .toBe('declined');
     await expect(page.locator('script[src*="cloudflareinsights"]')).toHaveCount(0);
 

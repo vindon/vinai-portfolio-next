@@ -1,8 +1,8 @@
-# vinai portfolio — React/Next.js rebuild with animated Products carousel
+# firstbloc portfolio — React/Next.js rebuild with animated Products carousel
 
 ## Overview
 
-Rebuild the vinai portfolio site (currently a single static HTML file at
+Rebuild the firstbloc portfolio site (currently a single static HTML file at
 `/Users/vinoth/project/vinai-portfolio/index.html`) as a Next.js
 application, and replace the static 2-column Products grid with a
 polished, swipeable carousel. Each product card gets an animated SVG
@@ -52,7 +52,7 @@ is approved and deployed.
 ## Project structure
 
 ```
-vinai-portfolio-next/
+firstbloc-portfolio-next/
   app/
     layout.tsx        # fonts, metadata, globals.css import
     page.tsx           # assembles <Nav/><Hero/><ProductsCarousel/><Solutions/><About/><Footer/>
