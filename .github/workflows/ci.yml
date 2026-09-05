@@ -44,19 +44,6 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
 
-      # TEMP: regenerate stale Linux visual-regression baselines after this
-      # session's content changes (wordmark, footer, demo links, color,
-      # coming-soon gate) shifted page height. Remove this step once the
-      # regenerated baselines are committed.
-      - name: TEMP - regenerate Linux visual-regression baselines
-        run: npx playwright test e2e/responsive.spec.ts --update-snapshots || true
-
-      - name: TEMP - upload regenerated baselines
-        uses: actions/upload-artifact@v4
-        with:
-          name: updated-baselines
-          path: e2e/responsive.spec.ts-snapshots/
-
       - name: E2E, visual regression, and accessibility tests
         run: npm run test:e2e
 
