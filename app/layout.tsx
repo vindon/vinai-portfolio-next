@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter, IBM_Plex_Mono } from 'next/font/google';
-import { siteUrl, siteTitle, siteDescription } from '@/lib/site';
+import { siteUrl, siteTitle, siteDescription, isComingSoon } from '@/lib/site';
 import './globals.css';
 
 const inter = Inter({
@@ -20,10 +20,19 @@ const ibmPlexMono = IBM_Plex_Mono({
   display: 'swap',
 });
 
+// While isComingSoon is active, search engines and link-preview cards
+// (Slack, iMessage, LinkedIn) should see the placeholder's own copy, not
+// the full product/consulting metadata — otherwise a shared link previews
+// content the page itself doesn't show.
+const metaTitle = isComingSoon ? 'firstbloc — Coming soon' : siteTitle;
+const metaDescription = isComingSoon
+  ? 'New site launching soon.'
+  : siteDescription;
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: siteTitle,
-  description: siteDescription,
+  title: metaTitle,
+  description: metaDescription,
   keywords: [
     'AI strategy',
     'agentic AI',
@@ -33,18 +42,18 @@ export const metadata: Metadata = {
     'AI consulting',
   ],
   authors: [{ name: 'Vinoth Nataraj' }],
-  robots: { index: true, follow: true },
+  robots: isComingSoon ? { index: false, follow: false } : { index: true, follow: true },
   openGraph: {
     type: 'website',
     url: siteUrl,
     siteName: 'firstbloc',
-    title: siteTitle,
-    description: siteDescription,
+    title: metaTitle,
+    description: metaDescription,
   },
   twitter: {
     card: 'summary_large_image',
-    title: siteTitle,
-    description: siteDescription,
+    title: metaTitle,
+    description: metaDescription,
   },
 };
 

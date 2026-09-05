@@ -7,12 +7,13 @@ import About from '@/components/About';
 import Footer from '@/components/Footer';
 import CookieConsent from '@/components/CookieConsent';
 import ComingSoon from '@/components/ComingSoon';
+import { isComingSoon } from '@/lib/site';
 
 export default function Home() {
   // Set only on Vercel's Production environment — Preview deployments
   // (plain `vercel`, no --prod) always render the real site underneath,
   // so work stays reviewable in staging while firstbloc.in shows this.
-  if (process.env.COMING_SOON === 'true') {
+  if (isComingSoon) {
     return <ComingSoon />;
   }
 

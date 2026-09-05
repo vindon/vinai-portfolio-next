@@ -1,4 +1,5 @@
 import { ImageResponse } from 'next/og';
+import { isComingSoon } from '@/lib/site';
 
 export const alt = 'firstbloc — AI Strategy, Products & CX Automation';
 export const size = { width: 1200, height: 630 };
@@ -24,11 +25,8 @@ export default function OpengraphImage() {
           background: gradientWarm,
         }}
       >
-        <div style={{ display: 'flex', fontSize: 32, fontWeight: 800, color: '#1F1F1F' }}>
-          first
-          <span style={{ display: 'flex', background: '#FF4800', color: '#FFFFFF', borderRadius: 6, padding: '0 10px 3px', marginLeft: 2 }}>
-            Bloc
-          </span>
+        <div style={{ display: 'flex', fontSize: 32, fontWeight: 800, color: '#1F1F1F', letterSpacing: -1.5 }}>
+          firstbloc
         </div>
         <div
           style={{
@@ -41,7 +39,7 @@ export default function OpengraphImage() {
             lineHeight: 1.1,
           }}
         >
-          AI systems built for production — not for demos.
+          {isComingSoon ? 'New site launching soon.' : 'AI systems built for production — not for demos.'}
         </div>
         <div style={{ display: 'flex', fontSize: 26, color: '#5B564C', marginTop: 24 }}>
           Vinoth Nataraj — AI Strategy, Products &amp; CX Automation
