@@ -384,3 +384,18 @@ footer .flinks a:hover{color:var(--accent-deep);}
 @media (prefers-reduced-motion: reduce){
   .cookie-banner{animation:none;}
 }
+
+/* ===== COMING SOON ===== */
+.coming-soon{
+  min-height:100vh;
+  background:var(--gradient-warm);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; gap:10px; padding:24px;
+}
+.coming-soon .brand-name{font-size:40px;}
+.coming-soon-tag{
+  font-family:var(--font-mono); font-size:12px; letter-spacing:0.08em; text-transform:uppercase;
+  color:var(--grey-light); margin:6px 0 0;
+}
+.coming-soon-note{font-size:16px; color:var(--grey); margin:4px 0 0;}
+.coming-soon-contact{font-size:14px; color:var(--accent-deep); margin-top:14px; font-weight:600;}
