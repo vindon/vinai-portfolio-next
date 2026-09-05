@@ -9,6 +9,7 @@
   --line-soft:#F0E4D4;
   --accent:#FF4800;
   --accent-deep:#C93700;
+  --accent-light:#FFD9BF;
   --accent-ink:#FFFFFF;
   --radius-lg:28px;
   --radius:14px;
@@ -110,9 +111,9 @@ header.nav{
 }
 @media(max-width:640px){ .nav-inner{padding:18px 20px;} }
 
-.brand-name{font-family:var(--font-sans); font-weight:800; font-size:21px; color:var(--ink);}
-.brand-block{display:inline-block; background:var(--accent); color:var(--accent-ink); font-weight:800; padding:1px 7px 2px; border-radius:4px; margin-left:1px;}
-.brand-tag{font-family:var(--font-mono); font-size:10px; letter-spacing:0.08em; color:var(--grey-light); text-transform:uppercase; display:block; margin-top:2px;}
+.brand-name{font-family:var(--font-sans); font-weight:800; font-size:36px; line-height:1; color:var(--ink); letter-spacing:-0.06em; display:inline-flex; align-items:center;}
+.brand-block-icon{display:inline-block; flex-shrink:0; margin-left:1px;}
+.brand-tag{font-family:var(--font-mono); font-size:10px; letter-spacing:0.08em; color:var(--grey-light); text-transform:uppercase; display:block; margin-top:0;}
 
 nav.links{display:flex; align-items:center; gap:36px;}
 nav.links a{

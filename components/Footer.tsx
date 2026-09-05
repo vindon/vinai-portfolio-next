@@ -1,10 +1,12 @@
+import BrandBlockIcon from './BrandBlockIcon';
+
 export default function Footer() {
   return (
     <footer id="contact">
       <div className="wrap">
         <div className="footer-top">
           <div className="footer-brand">
-            <span className="brand-name">first<span className="brand-block">Bloc</span></span>
+            <span className="brand-name">firstbloc<BrandBlockIcon size={30} /></span>
             <p>AI strategy, agentic products, and CX automation.</p>
             <div className="social-icons">
               <a

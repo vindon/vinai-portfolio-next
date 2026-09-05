@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import BrandBlockIcon from './BrandBlockIcon';
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
@@ -9,7 +10,7 @@ export default function Nav() {
     <header className="nav">
       <div className="nav-inner">
         <a href="#top" style={{ display: 'block' }}>
-          <span className="brand-name">first<span className="brand-block">Bloc</span></span>
+          <span className="brand-name">firstbloc<BrandBlockIcon size={30} /></span>
           <span className="brand-tag">AI Strategy &amp; Products</span>
         </a>
         <nav className={`links${open ? ' open' : ''}`}>
